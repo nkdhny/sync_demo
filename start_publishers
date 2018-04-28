@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rosrun ./dummy_publisher.py /foo:=/foo_0 _rate:=300&
+for i in {1..9}
+do
+ rosrun ./dummy_publisher.py /foo:=/foo_$i _rate:=$(($i * 10))&
+done
